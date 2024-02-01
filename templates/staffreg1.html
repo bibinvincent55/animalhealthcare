@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script>
+function abc()
+{
+if(document.form1.t1.value=="" || document.form1.t2.value=="" || document.form1.t3.value==""  || document.form1.t4.value=="" || document.form1.t5.value=="" || document.form1.t7.value=="")
+{
+alert("Please Enter All");
+return(false);
+}
+
+if(document.form1.t4.value.length<6)
+{
+alert("Pin should be exact 6 digits");
+return(false);
+}
+
+if(document.form1.t5.value.length<10)
+{
+alert("Phone should be min 10 digits");
+return(false);
+}
+
+if(document.form1.t7.value.indexOf("@")==-1  || document.form1.t7.value.indexOf(".")==-1 || document.form1.t7.value.indexOf("@")==0 || document.form1.t7.value.indexOf(".")==0)
+{
+alert("Invalid Email");
+return(false);
+}
+
+}
+
+
+
+</script>
+<body>
+{% include "p2.html" %}
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="81" height="18"></td>
+    <td width="685"></td>
+    <td width="14"></td>
+    <td width="516"></td>
+    <td width="31"></td>
+  </tr>
+  <tr>
+    <td height="337"></td>
+    <td valign="top"><p><strong>Staff Registration</strong></p>      <form name="form1" onSubmit="return abc()" method="post" action="staffreg2">
+	{% csrf_token %}
+        <table width="675" border="0">
+          <tr>
+            <td width="161">Name</td>
+            <td width="144"><input name="t1" type="text" id="t1" onKeyPress="return alphabets(event)"></td>
+            <td width="98">House Name </td>
+            <td width="244"><input name="t2" type="text" id="t2"></td>
+          </tr>
+          <tr>
+            <td>Place</td>
+            <td><input name="t3" type="text" id="t3" onKeyPress="return alphabets(event)"></td>
+            <td>Pin</td>
+            <td><input name="t4" type="text" id="t4" onKeyPress="return numbers(event)"></td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td><input name="t5" type="text" id="t5" onKeyPress="return numbers(event)"></td>
+            <td>Gender</td>
+            <td><input name="t6" type="radio" value="M">
+              Male              
+              <input name="t6" type="radio" value="F" checked>
+              Female</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><input name="t7" type="text" id="t7" onKeyPress="return email(event)"></td>
+            <td>Qualification</td>
+            <td><select name="t8" id="t8">
+              <option>SSLC</option>
+              <option>+2</option>
+              <option>Degree</option>
+              <option>PG</option>
+              <option>MBBS</option>
+              <option>MD</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Designation</td>
+            <td><select name="t9" id="t9">
+              <option>Doctor</option>
+              <option>Pharmacist</option>
+              <option>Office Staff</option>
+            </select></td>
+            <td>Hospital ID </td>
+            <td><select name="t10" id="t10">
+			{% for a in l  %}
+			<option>{{a}}</option>
+			{% endfor %}
+            </select></td>
+          </tr>
+          <tr>
+            <td colspan="4"><input type="submit" name="Submit" value="Submit">
+            <input type="reset" name="Submit2" value="Reset"></td>
+          </tr>
+        </table>
+    </form>      <p>&nbsp; </p></td>
+    <td>&nbsp;</td>
+    <td valign="top"><p><strong>Hospitals List </strong></p>
+      <table border="0" width="100%">
+        <tr>
+          <th>Hospital ID</th>
+          <th>Location</th>
+          <th>Place</th>
+          <th>Pin</th>
+          <th>Phone</th>
+          <th>District</th>
+          <th>Hospital Type</th>
+        </tr>
+  {% for hospid,location,place,pin,phone,district,hosptype in records %}
+  <tr align="center">
+    <td>{{hospid}}</td>
+    <td>{{location}}</td>
+    <td>{{place}}</td>
+    <td>{{pin}}</td>
+    <td>{{phone}}</td>
+    <td>{{district}}</td>
+    <td>{{hosptype}}</td>
+  </tr>
+  {% endfor %}
+    </table>      <p>&nbsp;</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="40"></td>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

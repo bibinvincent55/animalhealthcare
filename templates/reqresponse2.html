@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script>
+function abc()
+{
+if(document.form1.t2.value=="")
+{
+alert("Please enter the Response");
+return(false);
+}
+
+}
+
+</script>
+<body>
+{% include "p3.html" %}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="8" height="18"></td>
+    <td width="491"></td>
+    <td width="247"></td>
+    <td width="279"></td>
+    <td width="13"></td>
+    <td width="219"></td>
+    <td width="35"></td>
+  </tr>
+  <tr>
+    <td height="267">&nbsp;</td>
+    <td valign="top"><p><strong>Request Response to Owner </strong></p>
+      {% if records %}
+      <table border="0" width="87%">
+	    <tr>
+	    <th width="36%">Request No<br>(Click)</th> <th width="32%">Request Date</th><th width="32%">Owner ID</th></tr>
+	    {% for reqno,reqdate,ownerid  in records %}
+	    <tr align="center">
+	    <td><form action="reqresponse2" method="post">{% csrf_token %}<input type="submit" value="      {{reqno}}     "><input type="hidden" value="{{reqno}}" name="t1"></form></td>
+	    <td>{{reqdate}}</td>
+	    <td>{{ownerid}}</td>
+    
+	</tr>
+	    
+	
+	    {% endfor %}
+	    
+	
+	    
+      </table>
+    {% else %} <b><font color="#FF0000">No Animals Found</font></b> {% endif %}&nbsp;      </p></td>
+    <td valign="top"><table width="230" border="0">
+      <!--DWLayoutTable-->
+        <tr>
+          <td width="95">Req No </td>
+          <td width="89">{{s1}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Request</td>
+        </tr>
+        <tr>
+          <td colspan="2"><textarea name="textarea" cols="30" rows="10">{{request1}}</textarea></td>
+        </tr>
+        <tr>
+          <td>Req Date </td>
+          <td>{{reqdate}}&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="122"></td>
+          <td></td>
+        </tr>
+        </table></td>
+    <td valign="top"><strong>Owner Details
+    </strong>      <table width="272" border="0">
+        <tr>
+          <td width="84">Owner Id </td>
+          <td width="172">{{ownerid}}</td>
+        </tr>
+        <tr>
+          <td>Owner Name </td>
+          <td>{{ownername}}</td>
+        </tr>
+        <tr>
+          <td>House Name</td>
+          <td>{{hname}}</td>
+        </tr>
+        <tr>
+          <td>Place</td>
+          <td>{{place}}</td>
+        </tr>
+        <tr>
+          <td>Pin</td>
+          <td>{{pin}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{phone}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{gender}}</td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td>{{district}}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{email}}</td>
+        </tr>
+          </table></td>
+    <td>&nbsp;</td>
+    <td valign="top"><form name="form1" method="post" onSubmit="return abc()" action="reqresponse3">{% csrf_token %}
+      <table width="200" border="0">
+        <tr>
+          <td>Response</td>
+        </tr>
+        <tr>
+          <td><textarea name="t2" cols="30" rows="10" id="t2"></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="Submit" value="Submit"><input type="hidden" name="t1" value="{{s1}}"></td>
+        </tr>
+      </table>
+    </form></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="35"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

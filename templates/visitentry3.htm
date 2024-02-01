@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script>
+
+function abc()
+{
+if(document.form1.t3.value=="")
+{
+alert("Please Enter Visit Details");
+return(false);
+
+}
+
+
+}
+
+</script>
+<body>
+{% include "p3.html" %}
+<table width="1304" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="12" height="19">&nbsp;</td>
+    <td width="551">&nbsp;</td>
+    <td width="9">&nbsp;</td>
+    <td width="388">&nbsp;</td>
+    <td width="344">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="288">&nbsp;</td>
+    <td valign="top"><p><strong>Owner Animals List (Hospital wise) </strong></p>
+      <table width="390" border="0">
+        <tr>
+          <td width="170">Owner ID </td>
+          <td width="204">{{s1}}</td>
+        </tr>
+        <tr>
+          <td>Owner Name </td>
+          <td>{{ownername}}</td>
+        </tr>
+        <tr>
+          <td>House Name </td>
+          <td>{{hname}}</td>
+        </tr>
+        <tr>
+          <td>Place</td>
+          <td>{{place}}</td>
+        </tr>
+        <tr>
+          <td>Pin</td>
+          <td>{{pin}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{phone}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{gender}}</td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td>{[district}}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{email}}</td>
+        </tr>
+      </table>      <p>&nbsp;</p></td>
+    <td>&nbsp;</td>
+    <td valign="top"><p><strong>Visit Details</strong></p>
+      <form name="form1" method="post" onSubmit="return abc()" action="visitentry3">
+        <table width="347" border="0">
+          <tr>
+            <td>Visit Status </td>
+            <td>{{s2}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">Visit Details </td>
+          </tr>
+          <tr>
+            <td colspan="2"><textarea name="t3" cols="60" rows="10" id="t3">{{s3}}</textarea></td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Visit entry success...The Visit Number is {{vno}} </strong></td>
+          </tr>
+        </table>
+      </form>      <p>&nbsp; </p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="11"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

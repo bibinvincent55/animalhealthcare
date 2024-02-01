@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script>
+function abc()
+{
+if(document.form1.t2.value=="")
+{
+alert("Please enter the problem");
+return(false);
+}
+
+if(document.form1.file.value=="")
+{
+alert("Please select Animal/Bird Photo...");
+return(false);
+}
+}
+</script>
+<body>
+{% include "p4.html" %}
+<table width="1288" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="672" height="267" valign="top"><p><strong>My Own Animal/ Birds --- Treatment Request </strong></p>
+      {% if records %}
+      <table width="100%" border="0"  bgcolor="#FFFF33">
+	    <tr>
+	    <th width="20%">Animal No<br>{Click}</th> <th width="12%">Anname</th><th width="17%">Breed</th><th width="12%">Age</th><th width="13%">Age Unit</th><th width="14%">Origin</th><th width="12%">Regdate</th>
+	    {% for anno,anname,breed,age,ageunit,origin,regdate  in records %}
+	    <tr align="center"><td><form action="treatmentrequest2" method="post">{% csrf_token %}<input type="submit" value="<<    {{anno}}    >>"><input type="hidden" name="t1" value="{{anno}}"></form></td>
+	    <td>{{anname}}</td>
+	    <td>{{breed}}</td>
+	    <td>{{age}}</td>
+	    <td>{{ageunit}}</td>
+	    <td>{{origin}}</td>
+	    <td>{{regdate}}</td>
+    
+	</tr>
+	    
+	
+	    {% endfor %}
+	    
+	
+	    
+      </table>
+    {% else %} <b><font color="#FF0000">No Animals Found</font></b> {% endif %}&nbsp;      </p></td>
+    <td width="246" valign="top"><p><strong>Selected Animal/Bird Details</strong></p>      <table width="246" border="0" bgcolor="#66FFFF">
+        <tr>
+          <td width="85">Animal No</td>
+          <td width="145">{{s1}}</td>
+        </tr>
+        <tr>
+          <td>Animal Name </td>
+          <td>{{anname}}</td>
+        </tr>
+        <tr>
+          <td>Breed</td>
+          <td>{{breed}}</td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td>{{age}}</td>
+        </tr>
+        <tr>
+          <td>Age Unit </td>
+          <td>{{ageunit}}</td>
+        </tr>
+        <tr>
+          <td>Origin</td>
+          <td>{{orogin}}</td>
+        </tr>
+        <tr>
+          <td>Reg Date </td>
+          <td>{{regdate}}</td>
+        </tr>
+            </table>      <p>&nbsp; </p></td>
+    <td width="357" valign="top"><form action="treatmentrequest3" method="post" enctype="multipart/form-data" name="form1" onSubmit="return abc()">{% csrf_token %}
+      <table width="352" border="0">
+        <tr>
+          <td height="23" colspan="2"><p>Problem</p>            </td>
+        </tr>
+        <tr>
+          <td height="23" colspan="2"><textarea name="t2" cols="40" rows="10" id="t2"></textarea></td>
+        </tr>
+        <tr>
+          <td width="186" height="23"><p>Select Animal Photo </p>            </td>
+          <td width="156"><input type="file" name="file"></td>
+        </tr>
+        <tr>
+          <td height="23" colspan="2"><input type="submit" name="Submit" value="Submit"><input type="hidden" name="t1" value="{{s1}}"></td>
+        </tr>
+      </table>
+    </form></td>
+    <td width="13">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="53"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

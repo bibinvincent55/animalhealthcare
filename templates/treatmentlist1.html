@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+{% include "p3.html" %}
+<table width="1304" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="48" height="19">&nbsp;</td>
+    <td width="1211">&nbsp;</td>
+    <td width="45">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="288"></td>
+    <td valign="top"><p><strong>Treatment Details </strong></p>
+      <p>{% if records %} <strong>Select Owner ID </strong></p>
+      <table border="0" width="100%" bgcolor="#66FFFF">
+      <tr>
+        <th>Owner ID</th>
+        <th>Owner Name</th>
+        <th>House Name</th>
+        
+        <th>Place</th>
+        <th>Pin</th>
+        <th>Phone</th>
+		<th>Gender</th>
+		<th>District</th>
+		<th>Email</th>
+        {% for ownerid,ownername,hname,place,pin,phone,gender,district,email in records %}
+	    <tr align="center">
+	    <td><form action="treatmentlist2" method="post">{% csrf_token %}
+	      <input type="submit" value="{{ownerid}}"><input type="hidden" name="t1" value="{{ownerid}}"></form></td>
+	    <td>{{ownername}}</td>
+	    <td>{{hname}}</td>
+	    <td>{{place}}</td>
+	    <td>{{pin}}</td>
+	    <td>{{phone}}</td>
+	    <td>{{gender}}</td>
+		<td>{{district}}</td>
+		<td>{{email}}</td>
+	    </tr>
+  {% endfor %}
+    </table>
+    {% else %} <b><font color="#FF0000">No Animal Owners Found</font></b> {% endif %} &nbsp;
+    <p></p>
+    <p>&nbsp; </p></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="11"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

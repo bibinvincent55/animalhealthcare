@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+{% include "p1.html" %}
+<table width="1290" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="134" height="23">&nbsp;</td>
+    <td width="987">&nbsp;</td>
+    <td width="169">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="311">&nbsp;</td>
+    <td valign="top"><b>
+    <p>Animals/ Birds/ Pets  List</p>
+    </b>
+    <p><table border="0" width="100%">
+	<tr><th>Animal/ Bird/ Pets Name</th><th>Type</th><th>Production</th><th>Specification</th></tr>
+	{% for anname,antype,production,specification in records %}
+	<tr align="center"><td>{{anname}}</td>
+	
+	<td>{{antype}}</td>
+	<td>{{production}}</td>
+	<td>{{specification}}</td>
+		</tr>
+	
+	{% endfor %}
+	</table>&nbsp; </p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="45">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

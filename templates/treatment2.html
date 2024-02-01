@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script>
+function abc()
+{
+if(document.form4.t2.value=="")
+{
+alert("Please Enter the Instruction");
+return(false);
+}
+
+if(document.form4.file.value=="")
+{
+alert("Please Select the Prescription");
+return(false);
+}
+}
+
+</script>
+<body>
+{% include "p3.html" %}
+<table width="1332" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td height="113" colspan="3" valign="top"><p><strong>Treatment</strong></p>      <form name="form1" method="post" action="treatment2">
+        {% csrf_token %}
+       {% if l %}   <table width="471" border="0">
+          <tr>
+            <td width="166">Select Treatment No. </td>
+            <td width="105"><select name="c1" id="c1">
+			{% for a in l %}
+			<option>{{a}}</option>
+			{% endfor %}
+            </select></td>
+            <td width="186"><input type="submit" name="Submit" value="Show Details==&gt;&gt;"></td>
+          </tr>
+          </table>{% else %} <b><font color="#FF0000">No Treatment Request </font></b> {% endif %}
+    </form></td>
+    <td width="300" rowspan="2" valign="top"><table width="367" border="0">
+      <tr>
+        <td width="201">Treatment No </td>
+        <td width="150">{{s1}}</td>
+      </tr>
+      <tr>
+        <td>Owner ID </td>
+        <td>{{ownerid}}</td>
+      </tr>
+      <tr>
+        <td>Animal No. </td>
+        <td>{{anno}}</td>
+      </tr>
+      <tr>
+        <td colspan="2">Problem</td>
+      </tr>
+      <tr>
+        <td colspan="2"><textarea name="textarea">{{problem}}</textarea></td>
+      </tr>
+      <tr>
+        <td>Problem Date </td>
+        <td>{{pdate}}</td>
+      </tr>
+      <tr>
+        <td colspan="2"><form name="form2" method="post" action="down11">
+            {% csrf_token %}
+                <input type="submit" name="Submit2" value="Download Photo">
+                <input type="hidden" name="t1" value="{{phfname}}">
+        </form></td>
+      </tr>
+    </table></td>
+    <td width="202" rowspan="2" valign="top"><form action="treatment3" method="post" onSubmit="return abc()" enctype="multipart/form-data" name="form4">{% csrf_token %}
+      <table width="200" border="0">
+        <tr>
+          <td><strong>Prescription</strong></td>
+        </tr>
+        <tr>
+          <td><input type="file" name="file"></td>
+        </tr>
+        <tr>
+          <td>Instruction</td>
+        </tr>
+        <tr>
+          <td><textarea name="t2" cols="30" rows="10" id="t2"></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="Submit4" value="Submit">
+            <input type="hidden" name="c1" value="{{s1}}"></td>
+        </tr>
+      </table>
+    </form></td>
+  <td width="94">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="355" rowspan="2" valign="top"><p><strong>Owner Details</strong></p>
+      <table width="268" border="0">
+        <tr>
+          <td width="101">Owner Name </td>
+          <td width="115">{{ownername}}</td>
+        </tr>
+        <tr>
+          <td>House Name </td>
+          <td>{{hname}}</td>
+        </tr>
+        <tr>
+          <td>Place</td>
+          <td>{{place}}</td>
+        </tr>
+        <tr>
+          <td>Pin</td>
+          <td>{{pin}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{phone}}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{gender}}</td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td>{{district}}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{email}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>      <p>&nbsp; </p></td>
+    <td width="312" rowspan="2" valign="top"><p>Animal/Bird Details</p>      <table width="312" border="0">
+        <tr>
+          <td width="126">Anno</td>
+          <td width="170">{{anno}}</td>
+        </tr>
+        <tr>
+          <td>Animal Name </td>
+          <td>{{anname}}</td>
+        </tr>
+        <tr>
+          <td>Breed</td>
+          <td>{{breed}}</td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td>{{age}}</td>
+        </tr>
+        <tr>
+          <td>Age Unit </td>
+          <td>{{ageunit}}</td>
+        </tr>
+        <tr>
+          <td>Origin</td>
+          <td>{{origin}}</td>
+        </tr>
+        <tr>
+          <td>Reg date </td>
+          <td>{{regdate}}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><form name="form3" method="post" action="down22">{% csrf_token %}
+            <input type="submit" name="Submit3" value="Download Certificate"><input type="hidden" name="t1" value="{{certificate}}">
+          </form></td>
+        </tr>
+                        </table>      <p>&nbsp; </p></td>
+    <td width="2" height="122">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="163">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="0"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

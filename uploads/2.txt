@@ -1,0 +1,51 @@
+	{% load static %}
+
+<style>
+    #bg
+    {
+        background-size: auto;
+		
+		background-image:url('{% static "back/front2.jpg" %}');
+		background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+
+
+    }
+
+</style>
+
+
+
+
+<body id="bg">
+
+------------------------------------
+
+{% include "homemenu.html" %}
+-----------------------------------
+
+{% load static %}
+<img src='{% static "back/front1.jpg" %}'
+ width="200" height="200">
+
+
+------------------------------------
+
+
+PHP
+
+
+
+<style>
+body,
+.bg
+{
+background-image:url("./back/sh23.jpg");
+background-repeat:no-repeat;
+background-size: cover;
+color: black;
+background-position: inherit;
+}
+</style>

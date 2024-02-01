@@ -1,0 +1,23 @@
+con = connect()
+    cursor = con.cursor()
+    s = "select * from session"
+    cursor.execute(s)
+    records = cursor.fetchall()
+    for row in records:
+        staffid = row[0]
+        desig = row[2]
+    aa=""
+    bb=""
+    cc=""
+    dd=""
+    if desig=="Pharmacist":
+        aa="yes"
+    elif desig=="Dr":
+        bb="yes"
+    elif desig=="Office Staff":
+        cc="yes"
+    elif desig=="Lab Staff":
+        dd="yes"
+        
+-----------------------------------
+'aa':aa,'bb':bb,'cc':cc,'dd':dd        

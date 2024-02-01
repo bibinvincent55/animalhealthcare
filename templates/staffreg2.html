@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+{% include "p2.html" %}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="81" height="18"></td>
+    <td width="685"></td>
+    <td width="14"></td>
+    <td width="516"></td>
+    <td width="31"></td>
+  </tr>
+  <tr>
+    <td height="337"></td>
+    <td valign="top"><p><strong>Staff Registration</strong></p>      <form name="form1" method="post" action="staffreg2">
+        <table width="675" border="0">
+          <tr>
+            <td width="161">Name</td>
+            <td width="144">{{s1}}</td>
+            <td width="98">House Name </td>
+            <td width="244">{{s2}}</td>
+          </tr>
+          <tr>
+            <td>Place</td>
+            <td>{{s3}}</td>
+            <td>Pin</td>
+            <td>{{s4}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{s5}}</td>
+            <td>Gender</td>
+            <td>{{s6}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{s7}}</td>
+            <td>Qualification</td>
+            <td>{{s8}}</td>
+          </tr>
+          <tr>
+            <td>Designation</td>
+            <td>{{s9}}</td>
+            <td>Hospital ID </td>
+            <td>{{s10}}</td>
+          </tr>
+          <tr>
+            <td colspan="4"><strong>Staff registered...The staff ID is</strong> {{staffid}} </td>
+          </tr>
+        </table>
+    </form>      <p>&nbsp; </p></td>
+    <td>&nbsp;</td>
+    <td valign="top"><p><strong>Hospitals List </strong></p>
+      <table border="0" width="100%">
+        <tr>
+          <th>Hospital ID</th>
+          <th>Location</th>
+          <th>Place</th>
+          <th>Pin</th>
+          <th>Phone</th>
+          <th>District</th>
+          <th>Hospital Type</th>
+        </tr>
+  {% for hospid,location,place,pin,phone,district,hosptype in records %}
+  <tr align="center">
+    <td>{{hospid}}</td>
+    <td>{{location}}</td>
+    <td>{{place}}</td>
+    <td>{{pin}}</td>
+    <td>{{phone}}</td>
+    <td>{{district}}</td>
+    <td>{{hosptype}}</td>
+  </tr>
+  {% endfor %}
+    </table>      <p>&nbsp;</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="40"></td>
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

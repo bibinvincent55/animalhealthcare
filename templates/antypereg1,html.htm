@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="146" height="26">&nbsp;</td>
+    <td width="883">&nbsp;</td>
+    <td width="298">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="333">&nbsp;</td>
+    <td valign="top"><p><strong>Animal Type Registration</strong></p>
+      <form name="form1" method="post" action="antypereg2">
+	  {% csrf_token %}
+        <table width="411" border="0">
+          <tr>
+            <td width="172">Animal/Bird Name </td>
+            <td width="223"><input name="t1" type="text" id="t1"></td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td><select name="t2" id="t2">
+              <option>Cattle</option>
+              <option>Hen</option>
+              <option>Pig</option>
+              <option>Parrot</option>
+              <option>Dog</option>
+              <option>Cat</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Production(Items)</td>
+            <td><select name="t3" id="t3">
+              <option>Milk</option>
+              <option>Egg</option>
+              <option>Meat</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td height="29" colspan="2"><p>Specification</p></td>
+          </tr>
+          <tr>
+            <td height="29" colspan="2"><textarea name="t4" cols="60" rows="7" id="t4"></textarea></td>
+          </tr>
+          <tr>
+            <td height="29" colspan="2"><input type="submit" name="Submit" value="Submit">
+            <input type="reset" name="Submit2" value="Reset"></td>
+          </tr>
+        </table>
+    </form>      <p>&nbsp; </p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="36">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

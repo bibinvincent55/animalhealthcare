@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+{% include "p2.html" %}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="239" height="18"></td>
+    <td width="824"></td>
+    <td width="264"></td>
+  </tr>
+  <tr>
+    <td height="137"></td>
+    <td valign="top"><p><strong>Animal Breed and Details Registration</strong></p>
+      <form name="form1" method="post" action="animalbreedreg2">{% csrf_token %}
+      {% if l %}  <table width="381" border="0">
+          <tr>
+            <td width="151">Animal Name </td>
+            <td width="126"><select name="c1" id="c1">
+			{% for a in l %}
+			for a in l 
+			<option>{{a}}</option>
+			
+			{% endfor %}
+            </select></td>
+            <td width="82"><input type="submit" name="Submit" value="Submit"></td>
+          </tr>
+        </table>{% else %} <b>No Animals</b> {% endif %}
+      </form>      <p>&nbsp; </p></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="224"></td>
+    <td>&nbsp;</td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>
